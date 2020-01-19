@@ -4,8 +4,8 @@ from streamlink.plugin import Plugin
 from streamlink.plugin.api import validate
 from streamlink.stream import RTMPStream, HLSStream
 
-STREAMS_URL = "https://piczel.tv/api/streams/{0}?&page=1&sfw=false&live_only=true"
-HLS_URL = "https://piczel.tv/hls/{0}.m3u8"
+STREAMS_URL = "http://piczel.tv/api/streams/{0}?&page=1&sfw=false&live_only=true"
+HLS_URL = "http://piczel.tv/hls/{0}.m3u8"
 RTMP_URL = "rtmp://piczel.tv:1935/live/{0}"
 
 _url_re = re.compile(r"https://piczel.tv/watch/(\w+)")
