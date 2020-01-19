@@ -5,7 +5,7 @@ from streamlink.plugin.api import validate
 from streamlink.stream import RTMPStream, HLSStream
 
 STREAMS_URL = "http://piczel.tv/api/streams/{0}?&page=1&sfw=false&live_only=true"
-HLS_URL = "http://piczel.tv/hls/{0}.m3u8"
+HLS_URL = "http://piczel.tv/hls/485.m3u8"
 RTMP_URL = "rtmp://piczel.tv:1935/live/{0}"
 
 _url_re = re.compile(r"https://piczel.tv/watch/(\w+)")
@@ -51,7 +51,7 @@ class Piczel(Plugin):
             streams = {}
 
             try:
-                streams.update(HLSStream.parse_variant_playlist(self.session, HLS_URL.format(stream["id"])))
+                streams.update(HLSStream.parse_variant_playlist(self.session, HLS_URL))
             except IOError as e:
                 # fix for hosted offline streams
                 if "404 Client Error" in str(e):
